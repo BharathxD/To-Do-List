@@ -3,8 +3,6 @@ const app = express();
 const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-var favicon = require('serve-favicon');
-var path = require('path');
 
 mongoose.connect("mongodb+srv://Bharath_xD:Saibharat%40123@cluster0.cgaoktp.mongodb.net/todolistDB?retryWrites=true&w=majority");
 
@@ -12,7 +10,6 @@ app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); 
 
 
 const itemsSchema = {
