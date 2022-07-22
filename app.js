@@ -49,8 +49,11 @@ app.post("/", function (req, res) {
   const itemName = req.body.addItem;
    if(req.body.submit==="submit"){
     if (itemName.length===0){
-      res.redirect("/");
+      setTimeout(function() {
+        res.redirect("/");
+      }, 200);
     }
+    else {
     Item.deleteOne({name: "To-Do-List"}, function(err, result) {});
     const item = new Item({
       name: itemName
@@ -58,7 +61,8 @@ app.post("/", function (req, res) {
     item.save();
     setTimeout(function() {
       res.redirect("/");
-    }, 100);
+    }, 200);
+  }
   }
    if(req.body.reset==="reset"){
     Item.deleteMany({}, function(err) { 
@@ -99,15 +103,8 @@ app.post("/delete", function (req, res) {
   });  
 });
 
-app.post("/delete", function (req, res) {
-  const checkedItemId = req.body.newItem;
-    Item.findByIdAndRemove(checkedItemId, function (err) {
-    if (!err){
-      res.redirect("/");
-    }
-  });  
-});
+
 
 app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port 3000");
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
