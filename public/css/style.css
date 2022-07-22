@@ -1,0 +1,267 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+*::selection {
+    text-shadow: 0 0 6px #f2f2f2, 0 0 20px rgb(206 201 201 / 12%);
+  }
+
+  footer::selection {
+    text-shadow: 0 0 6px #ff2e63, 0 0 20px rgb(206 201 201 / 12%);
+  }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  min-height: 100vh;
+  background-color: #eaeaea;
+  padding: 20px;
+}
+
+h1 {
+  color: #fff;
+  font-weight: 700;
+  padding: 10px;
+}
+
+.box, .main_box {
+  min-width: max-content;
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #252a34;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+}
+
+#heading {
+  background-color: #ff2e63;
+  text-align: center;
+}
+
+#heading h1 {
+  color: #eaeaea;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  margin: 1px;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input:checked + p {
+  opacity: 0.3;
+  transition: 0.5s;
+}
+
+input:not(:checked) + p {
+    transition: 0.5s;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+  height: 20px;
+  width: 20px;
+  accent-color: #08D9D6;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.item_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+}
+
+button {
+  height: 50px;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #08D9D6;
+  color: #eaeaea;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+  font-size: 2rem;
+  cursor: pointer;
+  min-width: max-content;
+  margin-right: 10px;
+}
+
+
+button:hover {
+    background-color: #ff2e63;
+    transition: 0.6s;
+}
+
+input[type="text"] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #eaeaea;
+  font-size: 20px;
+  margin: 10px 20px;
+  font-weight: 400;
+  width: 313px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+input::selection {
+  text-shadow: 0 0 6px #08D9D6, 0 0 20px rgb(206 201 201 / 12%);
+}
+
+
+input[type="text"]:not(:focus){
+    transition: 0.3s;
+}
+  
+
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
+footer {
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.25rem;
+  }
+  p {
+    font-size: 1rem;
+    margin-left: 0;
+    font-weight: 600;
+  }
+  .box {
+    min-width: max-content;
+    margin-right: 0;
+  }
+  .main_box{
+    margin-right: 0;
+  }
+  button {
+    height: 50px;
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+
+  input[type="checkbox"] { 
+    margin: 20px;
+    margin-right: 5px;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    height: 50px;
+    margin: 10px;
+    justify-items: center;
+    font-size: 0.8rem;
+    width: 200px;
+    min-width: max-content;
+  }
+  footer {
+    font-size: 0.8rem;
+  }
+}
