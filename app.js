@@ -61,7 +61,7 @@ app.post("/", function (req, res) {
     item.save();
     setTimeout(function() {
       res.redirect("/");
-    }, 200);
+    }, 100);
   }
   }
    if(req.body.reset==="reset"){
@@ -102,6 +102,8 @@ app.post("/delete", function (req, res) {
     }
   });  
 });
+
+
 
 
 
