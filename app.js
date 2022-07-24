@@ -25,7 +25,7 @@ const item1 = new Item({
 
 const defaultItems = [item1];
 
-app.get("/", function (req, res) {
+app.route("/").get(function (req, res) {
   Item.find({}, function (err, foundItems) {
     if (foundItems.length === 0) {
       Item.insertMany(defaultItems, function (err) {
@@ -43,9 +43,8 @@ app.get("/", function (req, res) {
     });
    }
   });
-});
-
-app.post("/", function (req, res) {
+})
+.post(function (req, res) {
   const itemName = req.body.addItem;
    if(req.body.submit==="submit"){
     if (itemName.length===0){
