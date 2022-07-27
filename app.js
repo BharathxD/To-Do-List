@@ -50,7 +50,7 @@ app.route("/").get(function (req, res) {
     if (itemName.length===0){
       setTimeout(function() {
         res.redirect("/");
-      }, 200);
+      }, 100);
     }
     else {
     Item.deleteOne({name: "To-Do-List"}, function(err, result) {});
