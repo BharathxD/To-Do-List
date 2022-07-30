@@ -50,7 +50,7 @@ app.route("/").get(function (req, res) {
     if (itemName.length===0){
       setTimeout(function() {
         res.redirect("/");
-      }, 100);
+      }, 10);
     }
     else {
     Item.deleteOne({name: "To-Do-List"}, function(err, result) {});
@@ -60,7 +60,7 @@ app.route("/").get(function (req, res) {
     item.save();
     setTimeout(function() {
       res.redirect("/");
-    }, 100);
+    }, 10);
   }
   }
    if(req.body.reset==="reset"){
