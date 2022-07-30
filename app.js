@@ -48,9 +48,7 @@ app.route("/").get(function (req, res) {
   const itemName = req.body.addItem;
    if(req.body.submit==="submit"){
     if (itemName.length===0){
-      setTimeout(function() {
         res.redirect("/");
-      }, 10);
     }
     else {
     Item.deleteOne({name: "To-Do-List"}, function(err, result) {});
@@ -60,7 +58,7 @@ app.route("/").get(function (req, res) {
     item.save();
     setTimeout(function() {
       res.redirect("/");
-    }, 10);
+    }, 50);
   }
   }
    if(req.body.reset==="reset"){
