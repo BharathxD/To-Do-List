@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const router = express.Router();
-const Item = require("./user_model.js");
+const Item = require("../models/user_model");
 
 router.post("/delete", (req, res) => {
   const checkedItemId = req.body.newItem;
