@@ -1,23 +1,14 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const router = express.Router();
-const Item = require("../models/user_model");
+const Item = require('../models/user_model');
 
-router.post("/delete", (req, res) => {
-  const checkedItemId = req.body.newItem;
-  Item.findByIdAndRemove(checkedItemId, (err) => {
-    if (!err) {
-      res.redirect("/");
-    }
-  });
-});
-
-router.post("/delete", async (req, res) => {
+router.post('/delete', async (req, res) => {
   const checkedItemId = await req.body.newItem;
   Item.findByIdAndRemove(checkedItemId, (err) => {
     if (!err) {
-      res.redirect("/");
+      res.redirect('/');
     }
   });
 });

@@ -1,14 +1,17 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+const { config } = require('dotenv');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+require('dotenv').config();
 
 mongoose.connect(
-  "mongodb+srv://Bharath_xD:Saibharat%40123@cluster0.cgaoktp.mongodb.net/todolistDB?retryWrites=true&w=majority"
+  'mongodb+srv://Bharath_xD:'
+   + process.env.DB_PASS +
+  '@cluster0.cgaoktp.mongodb.net/todolistDB?retryWrites=true&w=majority'
 );
 
 const itemsSchema = {
   name: String,
+  time: String,
 };
 
-const Item = mongoose.model("Item", itemsSchema);
-
-module.exports = Item;
+module.exports = mongoose.model('Item', itemsSchema);

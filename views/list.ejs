@@ -1,41 +1,43 @@
+<%- include('partials/header'); -%>
 
-    <%- include('header'); -%>
-    <div class="box" id="heading">
-      <h1><%= listTitle %></h1>
-    </div>
-    <div class="main_box">
-   <% newListItems.forEach(function(item, index){ %>
-    <form action="/delete" method="post">
+<div class="box" id="heading">
+    <h1>
+      <%= listTitle %>
+        <% %>
+    </h1>
+  </div>
+  <div class="main_box">
+    <% newListItems.forEach(function(item, index){ %>
+      <form action="/delete" method="post">
         <div class="item">
-          <input type="checkbox" name="newItem" value="<%=item._id%>" 
-          onChange="this.form.submit()">
-          <p name="ifEmpty" value="empty" class="listItem"><%= item.name %></p>
+          <input type="checkbox" name="newItem" value="<%=item._id%>" onChange="this.form.submit()">
+          <p name="ifEmpty" value="empty" class="listItem">
+            <%= item.name %>
+              <span class="time">
+                <%= item.time %>
+              </span>
+          </p>
         </div>
       </form>
-        <% }); %> 
-      <form class="item_form" action="/" method="post">
-        <input
-          type="text"
-          name="addItem"
-          placeholder="Add New Item"
-          autocomplete="off"
-          maxlength="27"
-        />
-        <button type="submit" name="submit" value="submit">
+      <% }); %>
+        <form class="item_form" action="/" method="post">
+          <input type="text" name="addItem" placeholder="Add New Item" autocomplete="off" maxlength="27" />
+          <input type="text" name="addTime" placeholder="Time" autocomplete="off" maxlength="5" class="time_input" />
+          <button type="submit" name="submit" value="submit">
             <div class="btn">
-            <span class="material-symbols-outlined icon">
+              <span class="material-symbols-outlined icon">
                 add_circle
-                </span>
-            </div>
-        </button>
-        <button type="submit" name="reset" value="reset">
-          <div class="btn">
-          <span class="material-symbols-outlined icon">
-              clear_all
               </span>
-          </div>
-      </button>
-      </form>
-    </div>
-    <%- include('footer'); -%>
-  
+            </div>
+          </button>
+          <button type="submit" name="reset" value="reset">
+            <div class="btn">
+              <span class="material-symbols-outlined icon">
+                clear_all
+              </span>
+            </div>
+          </button>
+        </form>
+  </div>
+
+  <%- include('partials/footer'); -%>
