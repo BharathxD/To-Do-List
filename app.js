@@ -1,109 +1,29 @@
+'use strict'
+
 const express = require("express");
 const app = express();
-const date = require(__dirname + "/date.js");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const port = process.env.PORT || 3000;
 
+/* Routes */
 
-mongoose.connect("mongodb+srv://Bharath_xD:Saibharat%40123@cluster0.cgaoktp.mongodb.net/todolistDB?retryWrites=true&w=majority");
+const home = require("./routes/home.js");
+const deleteItem = require("./routes/deleteItem.js");
 
 app.set("view engine", "ejs");
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+/* Home route '/' */
 
-const itemsSchema = {
-  name: String,
-};
+app.use(home);
 
-const Item = mongoose.model("Item", itemsSchema);
+/* Route to delete Item in the list */
 
-const item1 = new Item({
-  name: "To-Do-List",
-});
+app.use(deleteItem);
 
-const defaultItems = [item1];
-
-app.route("/").get(function (req, res) {
-  Item.find({}, function (err, foundItems) {
-    if (foundItems.length === 0) {
-      Item.insertMany(defaultItems, function (err) {
-        if (err) {
-          console.log(err);
-        } 
-      });
-      res.redirect("/");
-    }
-    else 
-    {
-    res.render("list", {
-      listTitle: date,
-      newListItems: foundItems,
-    });
-   }
-  });
-})
-.post(function (req, res) {
-  const itemName = req.body.addItem;
-   if(req.body.submit==="submit"){
-    if (itemName.length===0){
-        res.redirect("/");
-    }
-    else {
-    Item.deleteOne({name: "To-Do-List"}, function(err, result) {});
-    const item = new Item({
-      name: itemName
-    });
-    item.save();
-    setTimeout(function() {
-      res.redirect("/");
-    }, 50);
-  }
-  }
-   if(req.body.reset==="reset"){
-    Item.deleteMany({}, function(err) { 
-      res.redirect("/");
-  });
-  
-}
-});
-
-app.get("/work", function (req, res) {
-  res.render("list", {
-    listTitle: "Work List",
-    newListItems: workItems,
-  });
-});
-
-app.post("/work", function (req, res) {
-  let item = req.body.newItem;
-  workItems.push(item);
-  res.redirect("/work");
-});
-
-app.post("/delete", function (req, res) {
-  const checkedItemId = req.body.newItem;
-    Item.findByIdAndRemove(checkedItemId, function (err) {
-    if (!err){
-      res.redirect("/");
-    }
-  });  
-});
-
-app.post("/delete", function (req, res) {
-  const checkedItemId = req.body.newItem;
-    Item.findByIdAndRemove(checkedItemId, function (err) {
-    if (!err){
-      res.redirect("/");
-    }
-  });  
-});
-
-
-
-
-
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+let http = require("http");
+let server = express().use('/', app);
+http.createServer(server).listen(port, () => {
+  console.log('Listening on '+port);
 });
