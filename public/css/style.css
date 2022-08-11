@@ -238,6 +238,9 @@ input[type="text"]:nth-child(2) {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
   h1 {
     font-size: 1.25rem;
   }
@@ -247,12 +250,21 @@ input[type="text"]:nth-child(2) {
     font-weight: 600;
   }
 
+  #heading {
+    min-width: max-content;
+    width: 100%;
+    margin: 50px auto;
+  }
+
   .box {
     min-width: max-content;
     margin-right: 0;
   }
   .main_box{
-    margin-right: 0;
+    margin: 20px auto;
+    margin-bottom: 50px;
+    min-width: max-content;
+    width: 100%;
   }
   button {
     height: 50px;
@@ -262,24 +274,40 @@ input[type="text"]:nth-child(2) {
     font-size: 2rem;
   }
 
+  #reset {
+    display: none;
+  }
+
+  #submit {
+    margin-right: 10px;
+  }
+
   input[type="checkbox"] { 
     margin: 20px;
-    margin-right: 5px;
+    margin-right: 0;
   }
 
   input[type="text"] {
     padding: 10px;
     height: 50px;
-    margin: 10px;
-    justify-items: center;
+    margin: 10px auto;
     font-size: 0.8rem;
-    width: 200px;
-    min-width: max-content;
   }
   footer {
     font-size: 0.8rem;
   }
+  input[type="text"]:nth-child(1) {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 150px !important;
+  }  
   input[type="text"]:nth-child(2) {
-    display: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-left: 0;
+    margin-right: 10px;
+    width: 100px !important;
   }  
 }

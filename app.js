@@ -16,11 +16,11 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-/* Home route '/' */
+/* Home Route */
 
 app.use(home);
 
-/* Route to delete Item/s in the list */
+/* Delete Route */
 
 app.use(deleteItem);
 
@@ -29,5 +29,5 @@ app.use(deleteItem);
 let http = require('http');
 let server = express().use('/', app);
 http.createServer(server).listen(port, () => {
-  console.log('Listening on '+port);
+  console.log(`Listening on ${port}`);
 });

@@ -4,9 +4,7 @@ const Schema = mongoose.Schema;
 require('dotenv').config();
 
 mongoose.connect(
-  'mongodb+srv://Bharath_xD:'
-   + process.env.DB_PASS +
-  '@cluster0.cgaoktp.mongodb.net/todolistDB?retryWrites=true&w=majority'
+  `mongodb+srv://Bharath_xD:${process.env.DB_PASS}@cluster0.cgaoktp.mongodb.net/todolistDB?retryWrites=true&w=majority`
 );
 
 const itemsSchema = {
