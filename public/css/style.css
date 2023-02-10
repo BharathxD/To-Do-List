@@ -8,12 +8,12 @@
 }
 
 *::selection {
-    text-shadow: 0 0 6px #f2f2f2, 0 0 20px rgb(206 201 201 / 12%);
-  }
+  text-shadow: 0 0 6px #f2f2f2, 0 0 20px rgb(206 201 201 / 12%);
+}
 
-  footer::selection {
-    text-shadow: 0 0 6px #ff2e63, 0 0 20px rgb(206 201 201 / 12%);
-  }
+footer::selection {
+  text-shadow: 0 0 6px #ff2e63, 0 0 20px rgb(206 201 201 / 12%);
+}
 
 /* Remove default margin */
 body,
@@ -95,7 +95,8 @@ h1 {
   padding: 10px;
 }
 
-.box, .main_box {
+.box,
+.main_box {
   min-width: max-content;
   max-width: 600px;
   margin: 50px auto;
@@ -129,13 +130,13 @@ h1 {
   border-bottom: 0;
 }
 
-input:checked + p{
+input:checked + p {
   opacity: 0.3;
   transition: 0.5s;
 }
 
-input:not(:checked) + p{
-    transition: 0.5s;
+input:not(:checked) + p {
+  transition: 0.5s;
 }
 
 .time {
@@ -147,7 +148,7 @@ input[type="checkbox"] {
   margin: 20px;
   height: 20px;
   width: 20px;
-  accent-color: #08D9D6;
+  accent-color: #08d9d6;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -175,7 +176,7 @@ button {
   justify-content: center;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #08D9D6;
+  background-color: #08d9d6;
   color: #eaeaea;
   font-size: 30px;
   padding-bottom: 6px;
@@ -186,10 +187,9 @@ button {
   margin-right: 10px;
 }
 
-
 button:hover {
-    background-color: #ff2e63;
-    transition: 0.6s;
+  background-color: #ff2e63;
+  transition: 0.6s;
 }
 
 input[type="text"] {
@@ -212,14 +212,12 @@ input[type="text"]:focus {
 }
 
 input::selection {
-  text-shadow: 0 0 6px #08D9D6, 0 0 20px rgb(206 201 201 / 12%);
+  text-shadow: 0 0 6px #08d9d6, 0 0 20px rgb(206 201 201 / 12%);
 }
 
-
-input[type="text"]:not(:focus){
-    transition: 0.3s;
+input[type="text"]:not(:focus) {
+  transition: 0.3s;
 }
-  
 
 ::placeholder {
   color: grey;
@@ -260,7 +258,7 @@ input[type="text"]:nth-child(2) {
     min-width: max-content;
     margin-right: 0;
   }
-  .main_box{
+  .main_box {
     margin: 20px auto;
     margin-bottom: 50px;
     min-width: max-content;
@@ -282,7 +280,7 @@ input[type="text"]:nth-child(2) {
     margin-right: 10px;
   }
 
-  input[type="checkbox"] { 
+  input[type="checkbox"] {
     margin: 20px;
     margin-right: 0;
   }
@@ -302,12 +300,12 @@ input[type="text"]:nth-child(2) {
     margin-left: 10px;
     margin-right: 10px;
     width: 150px !important;
-  }  
+  }
   input[type="text"]:nth-child(2) {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     margin-left: 0;
     margin-right: 10px;
     width: 100px !important;
-  }  
+  }
 }

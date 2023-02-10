@@ -1,20 +1,18 @@
-'use strict'
-
-const express = require('express');
+import express from "express";
 const app = express();
-const bodyParser = require('body-parser');
-const port = process.env.PORT || 3000;
+import bodyParser from "body-parser";
+const PORT = process.env.PORT || 3000;
 
 /* - Routes - */
 
-const home = require('./routes/home.js');
-const deleteItem = require('./routes/deleteItem.js');
+import home from "./routes/home.js";
+import deleteItem from "./routes/deleteItem.js";
 
 /* ---------- */
 
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 /* Home Route */
 
@@ -26,8 +24,6 @@ app.use(deleteItem);
 
 /* Server */
 
-let http = require('http');
-let server = express().use('/', app);
-http.createServer(server).listen(port, () => {
-  console.log(`Listening on ${port}`);
+app.listen(PORT, () => {
+  console.log(`listening on port: ${PORT}`);
 });

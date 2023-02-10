@@ -2,9 +2,11 @@
   "name": "todolist_v1",
   "version": "1.0.0",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run" : "node app.js"
+    "run": "node app.js",
+    "start": "nodemon app.js"
   },
   "author": "Bharath",
   "license": "ISC",

@@ -1,6 +1,5 @@
-module.exports = date();
-function date(){
-const calendar = new Date();
+export const date = () => {
+  const calendar = new Date();
   const options = {
     weekday: "long",
     year: "numeric",
@@ -8,4 +7,4 @@ const calendar = new Date();
     day: "numeric",
   };
   return calendar.toLocaleDateString("en-US", options);
-}
+};

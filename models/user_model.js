@@ -1,7 +1,5 @@
-const { config } = require('dotenv');
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-require('dotenv').config();
+import "dotenv/config";
+import mongoose from "mongoose";
 
 mongoose.connect(
   `mongodb+srv://Bharath_xD:${process.env.DB_PASS}@cluster0.cgaoktp.mongodb.net/todolistDB?retryWrites=true&w=majority`
@@ -12,4 +10,4 @@ const itemsSchema = {
   time: String,
 };
 
-module.exports = mongoose.model('Item', itemsSchema);
+export default mongoose.model("Item", itemsSchema);
